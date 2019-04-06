@@ -29,21 +29,21 @@ ActiveRecord::Schema.define(version: 2019_04_06_045200) do
   end
 
   create_table "restaurant_dishes", force: :cascade do |t|
-    t.bigint "restaurants_id"
-    t.bigint "dishes_id"
+    t.bigint "restaurant_id"
+    t.bigint "dish_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dishes_id"], name: "index_restaurant_dishes_on_dishes_id"
-    t.index ["restaurants_id"], name: "index_restaurant_dishes_on_restaurants_id"
+    t.index ["dish_id"], name: "index_restaurant_dishes_on_dish_id"
+    t.index ["restaurant_id"], name: "index_restaurant_dishes_on_restaurant_id"
   end
 
   create_table "restaurant_food_types", force: :cascade do |t|
-    t.bigint "restaurants_id"
+    t.bigint "restaurant_id"
     t.bigint "food_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_type_id"], name: "index_restaurant_food_types_on_food_type_id"
-    t.index ["restaurants_id"], name: "index_restaurant_food_types_on_restaurants_id"
+    t.index ["restaurant_id"], name: "index_restaurant_food_types_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
