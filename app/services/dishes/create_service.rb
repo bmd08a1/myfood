@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dishes
   class CreateService < BaseService
     attr_accessor :restaurant, :dish_name, :dish
