@@ -8,15 +8,15 @@ module Types
       "Hello World"
     end
 
-    field :create_dish, Types::DishType, null: false do
+    field :create_dish, Types::Dish, null: false do
       argument :attributes, Types::DishAttributes, required: true
     end
 
     def create_dish(attributes:)
-      Dishes::CreateService.call({
+      Dishes::CreateService.call(
         restaurant_id: attributes.restaurant_id,
         dish_name: attributes.dish_name
-      })
+      )
     end
   end
 end

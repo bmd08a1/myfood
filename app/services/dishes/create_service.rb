@@ -14,8 +14,10 @@ module Dishes
     def call
       ActiveRecord::Base.transaction do
         create_dish
-        create_restaurant_dish
+        create_restaurant_dish unless restaurant.has(dish)
       end
+
+      dish
     end
 
     private

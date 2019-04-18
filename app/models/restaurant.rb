@@ -11,4 +11,8 @@ class Restaurant < ApplicationRecord
   # validations
   validates :address, presence: true
   validates :start_at, :end_at, numericality: { greater_than_or_equal_to: 0, less_than: 24 }
+
+  def has(dish)
+    dishes.include?(dish)
+  end
 end
